@@ -37,3 +37,5 @@ export type ChinesePoetry = PoetryTang | PoetryStatistic | string
 export type Loader = {
   load(path: string): Array<ChinesePoetry>
 }
+
+export type PoetryType = 'quan_tang_shi'
