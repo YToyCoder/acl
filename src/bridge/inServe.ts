@@ -1,8 +1,7 @@
 import { ipcMain } from "electron"
-import { loadStatisticOf } from './predefines'
-import { poetryLoader, poetryFolder, loadStatistic } from '@/serve/load'
+import { loadStatisticOf, loadTangPoetry } from './predefines'
+import { loadStatistic, loadTangsPoetry } from '@/serve/load'
 import { PoetryType } from "@/types/poetry"
-import path from 'path'
 
 export default function () {
   ipcMain.on(loadStatisticOf, (event, poetryType: PoetryType) => {
@@ -10,6 +9,10 @@ export default function () {
     console.log('invoke loadStatisticOf in main process')
     event.sender.send(loadStatisticOf ,loadedData)
   }) 
-}
 
-export const preloadUrl = path.resolve(__dirname, './preload.ts')
+  ipcMain.on('loadTangPoetry', (event, file : string) => {
+    console.log('call main loadTangPoetry')
+    
+    event.sender.send('onloadTangPoetry', loadTangsPoetry(file))
+  })
+}

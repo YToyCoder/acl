@@ -2,9 +2,11 @@
 
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
-import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
+// import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
-import startServerBridge, { preloadUrl } from '@/bridge/inServe' 
+import startServerBridge from '@/bridge/inServe' 
+import setMenu from './menu'
+import setShortcut from './globalShortcut'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -14,13 +16,12 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 
-console.log(preloadUrl)
-
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    frame: false,
     webPreferences: {
       
       // Required for Spectron testing
@@ -38,6 +39,8 @@ async function createWindow() {
   })
 
   startServerBridge()
+  setMenu()
+  setShortcut(win)
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode

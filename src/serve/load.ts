@@ -2,9 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { PoetryStatistic, PoetryType } from "@/types/poetry"
 
-export const poetryFolder : string= path.resolve(__dirname, '../assets/poetry')
-
-
+export const poetryFolder : string= 'D:/workspace/chinese-poetry/'
 
 import { Loader, ChinesePoetry } from '@/types/poetry'
 
@@ -26,4 +24,8 @@ export function getStatisticFile(poetryType: PoetryType): string {
  */
 export function loadStatistic(poetryType: PoetryType) {
   return poetryLoader.load(getStatisticFile(poetryType))
+}
+
+export function loadTangsPoetry(poetryFile: string) {
+  return poetryLoader.load(poetryFile)
 }

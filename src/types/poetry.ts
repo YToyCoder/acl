@@ -1,11 +1,11 @@
 export type PoetryTang = {
-  title: string,
-  author?: string,
-  biography?: string,
-  paragraphs: Array<string>,
-  notes?: Array<string>,
-  volume: string,
-  'no#': number
+  title: string | undefined,
+  author?: string | undefined,
+  biography?: string | undefined,
+  paragraphs: Array<string> | undefined,
+  notes?: Array<string> | undefined,
+  volume: string | undefined,
+  'no#': number | undefined
 }
 
 /**

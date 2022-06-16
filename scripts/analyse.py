@@ -34,7 +34,7 @@ def getFilesOfFolder(folder: str):
     print(f'{folder} is a file' if os.path.exists(folder) else f"{folder} not exists" )
     return []
 
-poetryFolder = '../src/assets/poetry'
+poetryFolder = 'D:/workspace/chinese-poetry/'
 tangPoetry = 'quan_tang_shi'
 
 # 获取poetry类型的所有文件
