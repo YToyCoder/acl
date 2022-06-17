@@ -5,7 +5,8 @@ export interface IElectronAPI {
   [loadStatisticOf]: (poetryType: PoetryType) => Promise<any>,
   loadData: (callback: (event: Electron.IpcRendererEvent, data: PoetryStatistic) => any) => any,
   loadTangPoetry: (file: string) => Promise<any>,
-  onloadTangPoetry: (callback: (even: Electron.IpcRendererEvent, ...arg: any[]) => void) => any
+  onloadTangPoetry: (callback: (even: Electron.IpcRendererEvent, ...arg: any[]) => void) => any,
+  exitApp: () => Promise<any>
 }
 
 declare global {

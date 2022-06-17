@@ -1,15 +1,31 @@
 <script lang="ts" setup>
 import routes from '@/router/routes'
+import { reactive, ref } from 'vue';
+import { RouteRecordRaw } from 'vue-router';
+
+const selectedRoute = ref<RouteRecordRaw | undefined>( undefined )
+const selectedRouteCls : string = 'route__item-selected' 
+const reaRoutes = reactive(routes)
+/**
+ * 用于处理路由选择
+ */
+function handleSelectRoute(route: RouteRecordRaw){
+  if(typeof selectedRoute.value !== 'undefined' ){
+    selectedRoute.value.classes = [] 
+  }
+  route.classes.push(selectedRouteCls)
+  selectedRoute.value = route
+}
 </script>
 
 <template>
   <div style="width: 100%; height: 100%;">
     <div class="layout-side layout-line">
       <div style="height: 100%;">
-        <div v-for="route in routes" style="width: 100%;">
-          <div class="icon_item__wrapper">
+        <div v-for="route in reaRoutes" style="width: 100%;" >
+          <div class="icon_item__wrapper" :class="route.classes" >
             <div class="route__item">
-              <router-link :to="route.path">
+              <router-link :to="route.path" @click="handleSelectRoute(route)">
                 <icon :className="route.img" class="icon__item" v-if="route.img"></icon>
                 <span v-else style="font-size: 8px;">{{route.name}}</span>
               </router-link>
@@ -29,7 +45,7 @@ import routes from '@/router/routes'
 <style scoped>
 .layout-side{
   width: 49px;
-  background-color: rgb(62, 61, 60);
+  background-color: rgb(45, 45, 45);
   border-left: 1px rgb(46, 44, 44) solid; 
 }
 .layout-main {
@@ -88,5 +104,9 @@ import routes from '@/router/routes'
   bottom: 0;
   right: 0;
   margin: auto;
+}
+
+.route__item-selected {
+  border-left: 1px solid white;
 }
 </style>

@@ -38,7 +38,7 @@ async function createWindow() {
     }
   })
 
-  startServerBridge()
+  startServerBridge(app)
   setMenu()
   setShortcut(win)
 

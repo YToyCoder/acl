@@ -1,9 +1,9 @@
-import { ipcMain } from "electron"
+import { App, ipcMain } from "electron"
 import { loadStatisticOf, loadTangPoetry } from './predefines'
 import { loadStatistic, loadTangsPoetry } from '@/serve/load'
 import { PoetryType } from "@/types/poetry"
 
-export default function () {
+export default function (app: App) {
   ipcMain.on(loadStatisticOf, (event, poetryType: PoetryType) => {
     const loadedData = loadStatistic(poetryType)
     console.log('invoke loadStatisticOf in main process')
@@ -14,5 +14,9 @@ export default function () {
     console.log('call main loadTangPoetry')
     
     event.sender.send('onloadTangPoetry', loadTangsPoetry(file))
+  })
+
+  ipcMain.on('exitApp', () => {
+    app.quit()
   })
 }

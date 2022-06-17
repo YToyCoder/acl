@@ -19,5 +19,9 @@ contextBridge.exposeInMainWorld('poetry', {
 
   onloadTangPoetry: function(callback: (even: Electron.IpcRendererEvent, ...arg: any[]) => void) {
     ipcRenderer.on('onloadTangPoetry', callback)
+  },
+
+  exitApp: function() {
+    ipcRenderer.send('exitApp')
   }
 })
