@@ -13,6 +13,7 @@
   },
   "main": "background.js",
   "dependencies": {
+    "better-scroll": "^2.4.2",
     "core-js": "^3.6.5",
     "svg-sprite-loader": "^6.0.11",
     "vue": "^3.0.0",
