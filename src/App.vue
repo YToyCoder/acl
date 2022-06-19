@@ -12,7 +12,7 @@
     </div>
     <!-- <div style="height: calc(100% - 4vh);"> -->
       <!-- <router-view style="width: calc(100% - 2px);height: 100%; border: 1px solid;"/> -->
-    <layout style="width: 100%;height: calc(100% - 45px); border: none;">
+    <layout style="width: 100%;height: calc(100% - 45px);overflow: hidden; border: none;">
     </layout>
     <div id="foot"></div>
     <!-- </div> -->
