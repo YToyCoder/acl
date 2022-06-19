@@ -19,8 +19,8 @@ function handleSelectRoute(route: RouteRecordRaw){
 </script>
 
 <template>
-  <div style="width: 100%; height: 100%;">
-    <div class="layout-side layout-line">
+  <div style="width: 100%; height: 100%;" id="acl__layout">
+    <div class="acl__layout-side acl__layout-item">
       <div style="height: 100%;">
         <div v-for="route in reaRoutes" style="width: 100%;" >
           <div class="icon_item__wrapper" :class="route.classes" >
@@ -35,7 +35,7 @@ function handleSelectRoute(route: RouteRecordRaw){
       </div>
       <div style="width: 100%;"></div>
     </div>
-    <div class="layout-main layout-line">
+    <div class="acl__layout-main acl__layout-item">
       <!-- <div style="height: 30px; background-color: red;" v-for="i in [1,2]"></div> -->
       <router-view style="width:100%; height: 100%;" class="layout__route-main"></router-view>
     </div>

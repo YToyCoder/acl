@@ -1,0 +1,22 @@
+$a : red;
+
+@mixin acl__main-bt {
+  width: 40px;
+  height: 100%;
+}
+
+.acl__main-bt {
+  @include acl__main-bt();
+}
+
+.acl__main-bt:hover {
+  background-color: rgb(147, 147, 147);
+}
+
+.acl__main-btdanger{
+  @include acl__main-bt();
+}
+
+.acl__main-btdanger:hover {
+  background-color: rgb(192, 3, 3);
+}
