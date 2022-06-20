@@ -43,17 +43,6 @@ function handleSelectRoute(route: RouteRecordRaw){
 </template>
 
 <style scoped>
-
-.icon_item__wrapper {
-  height: 40px;
-  width: 30px;
-  position: relative;
-}
-
-.icon_item__wrapper:hover {
-  border-left: 1px solid white;
-}
-
 .icon__item {
   position: absolute;
   overflow: auto;

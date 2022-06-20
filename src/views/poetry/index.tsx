@@ -1,5 +1,5 @@
 import { FileMeta, PoetryStatistic, PoetryTang } from "@/types/poetry"
-import BScroll, { ScrollBar } from "better-scroll"
+import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
 import { defineComponent } from "vue"
 import Tang from './Tang.vue'
 
@@ -8,6 +8,7 @@ function getPoetry() {
 }
 
 BScroll.use(ScrollBar)
+BScroll.use(MouseWheel)
 
 export default defineComponent({
   name: 'poetry',
@@ -29,7 +30,11 @@ export default defineComponent({
         getPoetry().loadTangPoetry(data.fileMetas[0].name)
       })
       getPoetry().onloadTangPoetry((_ : Electron.IpcRendererEvent, data: Array<PoetryTang>) => {
+        console.log(this.scroll)
         this.poetry = data
+        setTimeout(() => {
+          this.scroll?.refresh()
+        }, 100)
       })
     },
 
@@ -39,7 +44,7 @@ export default defineComponent({
   },
   mounted() {
     // this.$nextTick(() => {
-      this.scroll = new BScroll('.scroll-wrapper', {scrollY: true, scrollbar: true})
+      this.scroll = new BScroll('.scroll-wrapper', {scrollY: true, scrollbar: true, click: true, mouseWheel: { speed: 20, invert: false, easeTime: 300}})
     // })
   },
   render() {
