@@ -2,9 +2,9 @@ $acl__layout-headBackColor: rgb(49,49,49);
 $acl__layout-sideBackColor: rgb(45, 45, 45);
 $acl__layout-mainBackColor: rgb(38, 36, 36);
 $acl__app-backColor : black;
-$acl__layout-headHeight: 30px;
+$acl__layout-headHeight: 20px;
 $acl__layout-footHeight: 20px;
-$acl__layout-contentHeight: calc(100% - $acl__layout-contentHeight - $acl__layout-footHeight);
+$acl__layout-contentHeight: calc(100% - $acl__layout-headHeight - $acl__layout-footHeight);
 
 #acl__head {
   padding: 0;
@@ -21,6 +21,7 @@ $acl__layout-contentHeight: calc(100% - $acl__layout-contentHeight - $acl__layou
   overflow: hidden;
   display: flex;
   align-items: center;
+  height: $acl__layout-headHeight;
   
   .acl__head-item {
     display: inline-block;
@@ -45,13 +46,6 @@ $acl__layout-contentHeight: calc(100% - $acl__layout-contentHeight - $acl__layou
       }
     }
   }
-}
-
-#acl__layout-wrapper {
-  width: 100%;
-  height: $acl__layout-contentHeight;
-  overflow: hidden;
-  border: none;
 }
 
 #acl__layout {
@@ -87,7 +81,7 @@ $acl__layout-contentHeight: calc(100% - $acl__layout-contentHeight - $acl__layou
 }
 
 #acl__foot {
-  height: 15px;
+  height: $acl__layout-footHeight;
   background-color: rgb(0, 112, 177);
 }
 

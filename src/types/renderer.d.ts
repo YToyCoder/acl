@@ -1,4 +1,5 @@
 import { loadStatisticOf, loadTangPoetry } from '@/bridge/predefines'
+import BScroll from 'better-scroll';
 import { PoetryType, PoetryStatistic } from './poetry';
 
 export interface IElectronAPI {

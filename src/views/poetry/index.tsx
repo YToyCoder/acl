@@ -1,6 +1,6 @@
 import { FileMeta, PoetryStatistic, PoetryTang } from "@/types/poetry"
 import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
-import { defineComponent } from "vue"
+import { defineComponent, getCurrentInstance } from "vue"
 import Tang from './Tang.vue'
 
 function getPoetry() {
@@ -45,6 +45,9 @@ export default defineComponent({
   mounted() {
     // this.$nextTick(() => {
       this.scroll = new BScroll('.scroll-wrapper', {scrollY: true, scrollbar: true, click: true, mouseWheel: { speed: 20, invert: false, easeTime: 300}})
+      const appContext = getCurrentInstance()?.appContext
+      if(appContext && appContext.config) {
+      }
     // })
   },
   render() {

@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 0; margin: 0;height: 100%; overflow-y: hidden;">
-    <div id="acl__head" style="height: 30px; width: 100%;overflow: hidden;">
+    <div id="acl__head">
       <div class="nav__layout acl__head-item">
       </div>
       <div class="acl__head-item">
@@ -17,7 +17,7 @@
     <!-- <div style="height: calc(100% - 4vh);"> -->
       <!-- <router-view style="width: calc(100% - 2px);height: 100%; border: 1px solid;"/> -->
     <layout class="acl__layout-wrapper" 
-    style="width: 100%;height: calc(100% - 45px);overflow: hidden; border: none;">
+      style="width: 100%;height: calc(100% - 40px);overflow: hidden; border: none;">
     </layout>
     <div id="acl__foot"></div>
     <!-- </div> -->
