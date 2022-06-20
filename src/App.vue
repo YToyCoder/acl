@@ -5,7 +5,7 @@
       </div>
       <div class="acl__head-item">
         <div class="acl__head-item-content">
-           a client
+           Acl
         </div>
       </div>
       <div class="acl__head-item">

@@ -23,7 +23,7 @@ function handleSelectRoute(route: RouteRecordRaw){
     <div class="acl__layout-side acl__layout-item">
       <div style="height: 100%;">
         <div v-for="route in reaRoutes" style="width: 100%;" >
-          <div class="icon_item__wrapper" :class="route.classes" >
+          <div class="acl__layout-side-item-icon-wrapper" :class="route.classes" >
             <div class="route__item">
               <router-link :to="route.path" @click="handleSelectRoute(route)">
                 <icon :className="route.img" class="icon__item" v-if="route.img"></icon>
@@ -43,27 +43,10 @@ function handleSelectRoute(route: RouteRecordRaw){
 </template>
 
 <style scoped>
-.layout-side{
-  width: 49px;
-  background-color: rgb(45, 45, 45);
-  border-left: 1px rgb(46, 44, 44) solid; 
-}
-.layout-main {
-  width: calc(100% - 50px);
-  background-color: rgb(38, 36, 36);
-  position: relative;
-}
-
-.layout-line {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
 
 .icon_item__wrapper {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 30px;
   position: relative;
 }
 
