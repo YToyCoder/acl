@@ -1,6 +1,6 @@
 import { App, ipcMain } from "electron"
-import { loadStatisticOf, loadTangPoetry } from './predefines'
-import { loadStatistic, loadTangsPoetry } from '@/serve/load'
+import { loadStatisticOf, loadTangPoetry, loadTangVolume, onLoadTangVolume } from './predefines'
+import { loadStatistic, loadTangsPoetry, loadVolume } from '@/serve/load'
 import { PoetryType } from "@/types/poetry"
 
 export default function (app: App) {
@@ -17,6 +17,13 @@ export default function (app: App) {
   })
 
   ipcMain.on('exitApp', () => {
+    console.log('click exitApp')
+    
     app.quit()
+  })
+
+  ipcMain.on(loadTangVolume, (event) => {
+    console.log(`${loadTangVolume} volume.json`)
+    event.sender.send(onLoadTangVolume, loadVolume("quan_tang_shi"))
   })
 }

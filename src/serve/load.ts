@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { PoetryStatistic, PoetryType } from "@/types/poetry"
+import { PoetryStatistic, PoetryType, VolumeStatistic } from "@/types/poetry"
 
 export const poetryFolder : string= 'D:/workspace/chinese-poetry/'
 
@@ -28,4 +28,18 @@ export function loadStatistic(poetryType: PoetryType) {
 
 export function loadTangsPoetry(poetryFile: string) {
   return poetryLoader.load(poetryFile)
+}
+
+/**
+ * 加载对应的诗词类型的卷统计信息
+ * @param poetryType 诗词类型
+ * @returns {Array<VolumeStatistic>}
+ */
+export function loadVolume(poetryType: PoetryType) {
+  return poetryLoader.load(
+    path.resolve(
+      path.resolve(poetryFolder, poetryType),
+      'volume.json'
+    )
+  )
 }

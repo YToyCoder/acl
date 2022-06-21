@@ -24,11 +24,13 @@ export type PoetryStatistic = {
   fileMetas: Array<FileMeta>
 }
 
+export type VolumeStatistic = Array<{volume: string, files: Array<string>}>
+
 export type PoetryConfig = {
   tangUrl: string
 }
 
-export type ChinesePoetry = PoetryTang | PoetryStatistic | string
+export type ChinesePoetry = PoetryTang | PoetryStatistic | string | VolumeStatistic
 
 /**
  * the file loader to load the json file for specific structure

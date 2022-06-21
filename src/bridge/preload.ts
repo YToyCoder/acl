@@ -1,5 +1,5 @@
 import { contextBridge , ipcRenderer } from 'electron'
-import { loadStatisticOf, loadTangPoetry } from './predefines'
+import { loadStatisticOf, loadTangPoetry, loadTangVolume, onLoadTangVolume } from './predefines'
 import { PoetryType } from '@/types/poetry'
 import { loadTangsPoetry } from '@/serve/load'
 
@@ -23,5 +23,13 @@ contextBridge.exposeInMainWorld('poetry', {
 
   exitApp: function() {
     ipcRenderer.send('exitApp')
+  },
+
+  [loadTangVolume]: function () {
+    ipcRenderer.send(loadTangVolume)
+  },
+
+  [onLoadTangVolume]: function(callback: (even: Electron.IpcRendererEvent, ...arg: any[]) => void) {
+    ipcRenderer.on(onLoadTangVolume, callback)
   }
 })

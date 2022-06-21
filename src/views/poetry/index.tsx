@@ -1,4 +1,4 @@
-import { FileMeta, PoetryStatistic, PoetryTang } from "@/types/poetry"
+import { FileMeta, PoetryStatistic, PoetryTang, VolumeStatistic } from "@/types/poetry"
 import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
 import { defineComponent, getCurrentInstance } from "vue"
 import Tang from './Tang.vue'
@@ -15,12 +15,14 @@ export default defineComponent({
   data: function(): { 
     meta: PoetryStatistic | undefined,
     poetry: Array<PoetryTang> | undefined,
-    scroll: BScroll | undefined
+    scroll: BScroll | undefined,
+    volumes: Array<VolumeStatistic> | undefined
   } {
     return {
       meta: undefined,
       poetry: undefined,
-      scroll: undefined
+      scroll: undefined,
+      volumes: undefined
     }
   },
   methods: {
@@ -35,6 +37,11 @@ export default defineComponent({
         setTimeout(() => {
           this.scroll?.refresh()
         }, 100)
+      })
+      getPoetry().loadTangVolume()
+      getPoetry().onLoadTangVolume(( _, data: Array<VolumeStatistic>) => {
+        console.log(data)
+        this.volumes = data
       })
     },
 

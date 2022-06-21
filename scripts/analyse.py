@@ -1,8 +1,10 @@
 from io import TextIOWrapper
+import itertools
 import os
 import sys
 from typing import List
 import json
+from xmlrpc.client import Boolean
 
 statisticFile = 'statistic.json'
 
@@ -110,13 +112,64 @@ def writeToStatistic(poetry: str, content) -> None:
     with open(fileName,mode='x', encoding='utf-8') as file:
       file.write(jsonContent)
 
+class ValumeInfo:
+  def __init__(self, name: str, files: list[str]) -> None:
+    self.name = name
+    self.files = files
+
+class VolumeInfoJsonEncoder(json.JSONEncoder):
+  def default(self, obj):
+    if isinstance(obj, ValumeInfo):
+      files = []
+      for file in obj.files:
+        files.append(file)
+      return {'name': obj.name, 'files': obj.files}
+    else :
+      return super().default(obj)
+
+# 统计全唐诗的卷和卷对应的；件
+def doStatisticsOfTangVolume() -> list[ValumeInfo]:
+  files = getFilesOfPoetry(tangPoetry)
+  map: dict = {}
+  def handleFile(file: TextIOWrapper) -> None:
+    content = json.load(file)
+    gbVolume = itertools.groupby(content, lambda x: x['volume'])
+    for volume,_ in gbVolume:
+      if not map.__contains__(volume):
+        map[volume] = []
+      map[volume].append(file.name)
+  for file in files: 
+    openJson(file, handleFile)
+  ans = []
+  for key,values in map.items() :
+    ans.append({'name': key, 'files': values})
+  return ans
+
+# 将内容写入fileName文件
+def writeToJson(filePath: str, content: any, overwrite: Boolean = False) -> None:
+  if os.path.exists(filePath) and not overwrite:
+    print(f"{filePath} exists")
+    return
+  with open(filePath, mode='x', encoding='utf-8') as file:
+    file.write(json.dumps(content, cls=VolumeInfoJsonEncoder, indent=2))
+    
+def handleVolumeTang():
+  ans = doStatisticsOfTangVolume()
+  file = simplePath(getFolderOfPoetry(tangPoetry), "volume.json")
+  print("write to file", file)
+  writeToJson(file, ans)
+
 if __name__ == '__main__':
   # tangs = getFilesOfPoetry(tangPoetry)
   # if len(tangs) > 0:
   #   for file in tangs:
   #     openJson(file, handleTangsPoetry
-  ans = doStatisticsForTangs()
-  print(ans)
+  # ans = doStatisticsForTangs()
+  # print(ans)
   # res = json.dumps(ans, cls=JsonEncoder, indent=2)
-  writeToStatistic(tangPoetry, ans)
+  # writeToStatistic(tangPoetry, ans)
   # print(getFolderOfPoetry(tangPoetry))
+  # ans = doStatisticsOfTangVolume()
+  # for one in  ans:
+    # print(one['name'], len(one['files']), one['files'])
+  handleVolumeTang()
