@@ -6,7 +6,7 @@
 <!-- </script> -->
 <!---->
 <template>
-  <svg  class="svg-icon">
+  <svg  :class="iconStyle">
     <use :xlink:href="iconName" class="svg-iner"></use>
   </svg>
 </template>
@@ -19,13 +19,19 @@ export default defineComponent({
     className: {
       type: String,
       default: ''
+    },
+    type: {
+      type: String,
+      default: ''
     }
   },
   setup(props, context) {
     const iconName = computed(() => props.className ? `#icon-${props.className}` : 'icon')
+    const iconStyle = computed(() => props.type === '' ? 'acl__icon' : `acl__icon-${props.type}`)
     return {
       props,
-      iconName
+      iconName,
+      iconStyle
     }
   }
 })
@@ -37,6 +43,13 @@ export default defineComponent({
   height:  1em;
   vertical-align: -0.15em;
   overflow: hidden;
+  fill:currentColor;
+  color: rgb(163, 164, 164);
+}
+
+.svg-icon:hover {
+  fill: currentColor;
+  color: rgb(232, 232, 232);
 }
 
 </style>

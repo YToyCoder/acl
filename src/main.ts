@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import handleIcons from '@/icons/index'
 import '@/app.scss'
+import '@/assets/style/index.scss'
 
 import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
 

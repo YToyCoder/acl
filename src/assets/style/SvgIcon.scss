@@ -1,0 +1,26 @@
+$acl__icon-color:  rgb(163, 164, 164);
+$acl__icon-highlight-color: #f9fafa;
+
+@mixin acl__icon-common {
+  width: 1em;
+  height:  1em;
+  vertical-align: -0.15em;
+  overflow: hidden;
+  fill:currentColor;
+}
+
+.acl__icon {
+  @include acl__icon-common();
+  color: $acl__icon-color;
+}
+
+.acl__icon-highlight {
+  @include acl__icon-common();
+  color: $acl__icon-highlight-color;
+}
+
+
+.acl__icon:hover {
+  @include acl__icon-common();
+  color: $acl__icon-highlight-color;
+}

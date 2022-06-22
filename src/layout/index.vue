@@ -11,8 +11,10 @@ const reaRoutes = reactive(routes)
  */
 function handleSelectRoute(route: RouteRecordRaw){
   if(typeof selectedRoute.value !== 'undefined' ){
+    selectedRoute.value.selected = false
     selectedRoute.value.classes = [] 
   }
+  route.selected = true
   route.classes.push(selectedRouteCls)
   selectedRoute.value = route
 }
@@ -26,7 +28,7 @@ function handleSelectRoute(route: RouteRecordRaw){
           <div class="acl__layout-side-item-icon-wrapper" :class="route.classes" >
             <div class="route__item">
               <router-link :to="route.path" @click="handleSelectRoute(route)">
-                <icon :className="route.img" class="icon__item" v-if="route.img"></icon>
+                <icon :className="route.img" :type="route.selected ? 'highlight' : ''" class="icon__item" v-if="route.img"></icon>
                 <span v-else style="font-size: 8px;">{{route.name}}</span>
               </router-link>
             </div>
