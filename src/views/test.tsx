@@ -1,22 +1,13 @@
 import { defineComponent } from "vue"
-import Scrollable from "@/components/Scrollable/index.tsx"
+import Card from "@/components/card"
 
 export default defineComponent({
   name: 'test',
   setup(props, ctx) {
     return () => (
-      <div>
-        <Scrollable scrollId="test-wrapper" >
-          
-          {(() => {
-            const ls = Array.from({length: 1000}, () => 'line..>')
-            const ans = []
-            for(let each of ls){
-              ans.push(<span>{each}</span>)
-            }
-            return ans
-          })()}
-        </Scrollable>
+      <div style={({width: '100%', height: '100%'})}>
+        <Card width="100px" height="200px" style="margin: 10px 10px;" type="dark">
+        </Card>
       </div>
     )
   }
