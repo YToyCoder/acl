@@ -1,0 +1,17 @@
+$acl--button-color: rgb(51, 144, 202);
+$acl--button-height: 30px;
+
+
+@mixin acl__button-common{
+  padding: 6px 8px;
+  border-radius: 6px;
+  width: $acl--button-height * 2;
+  height: $acl--button-height ;
+}
+
+.acl__button {
+  background-color: $acl--button-color;
+  border: none;
+  color: aliceblue;
+  @include acl__button-common();
+}

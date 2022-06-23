@@ -1,13 +1,12 @@
 import { defineComponent } from "vue"
-import Card from "@/components/card"
+import AclButton from '@/components/button'
 
 export default defineComponent({
   name: 'test',
   setup(props, ctx) {
     return () => (
-      <div style={({width: '100%', height: '100%'})}>
-        <Card width="100px" height="200px" style="margin: 10px 10px;" type="dark">
-        </Card>
+      <div style={({width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'})}>
+        <AclButton>打开</AclButton>
       </div>
     )
   }
