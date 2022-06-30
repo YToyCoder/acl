@@ -1,0 +1,13 @@
+
+@mixin acl--style-icon {
+  border-radius: 5px;
+  padding: .5px .5px;
+}
+
+.acl__style-icon-wrapper {
+  @include acl--style-icon();
+}
+
+.acl__style-icon-wrapper:hover {
+  background-color: rgb(69, 68, 68);
+}
