@@ -2,6 +2,7 @@ import { FileMeta, PoetryStatistic, PoetryTang, VolumeStatistic } from "@/types/
 import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
 import { defineComponent, getCurrentInstance } from "vue"
 import Tang from './Tang.vue'
+import StyleIcon from "@/components/StyleIcon"
 
 function getPoetry() {
   return window.poetry
@@ -62,15 +63,22 @@ export default defineComponent({
       <div 
       style={({height: '100%'})}
       >
-        <div style={({height: '25px', 'border-bottom': '1px solid black'})}>
+        <div style={({height: '35px', 'border-bottom': '1px solid black'})}>
           
-          poetry
+          {/* poetry
           <input />
           <button onClick={
             () => {
               getPoetry()?.loadStatisticOf('quan_tang_shi')
             }
-          }>统计信息</button>
+          }>统计信息</button> */}
+          <div class="acl__poetry-head-tags acl__poetry-head-item">
+          </div>
+          <div class="acl__poetry-head-function acl__poetry-head-item" >
+            <StyleIcon icon="volume" height="20px" class="acl__poetry-head-function-item" ></StyleIcon>
+            <StyleIcon icon="DoubleArrowLeft" height="20px" class="acl__poetry-head-function-item" ></StyleIcon>
+          </div>
+
         </div>
         <div class={'scroll-wrapper'} style={({height: 'calc(100% - 25px)', overflow: 'hidden', position: 'relative'})}>
           

@@ -1,0 +1,20 @@
+
+@mixin acl__center-style {
+  position: relative;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100%;
+}
+
+.acl__poetry-head-item {
+  @include acl__center-style();
+  display: inline-flex;
+}
+
+.acl__poetry-head-function {
+  float: right;
+  .acl__poetry-head-function-item {
+    float: right;
+  }
+}
