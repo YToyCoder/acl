@@ -6,8 +6,8 @@
 <!-- </script> -->
 <!---->
 <template>
-  <svg  :class="iconStyle">
-    <use :xlink:href="iconName" class="svg-iner"></use>
+  <svg  :class="iconStyle" :style="{width, height}">
+    <use :xlink:href="iconName" class="svg-iner" ></use>
   </svg>
 </template>
 
@@ -23,6 +23,14 @@ export default defineComponent({
     type: {
       type: String,
       default: ''
+    },
+    width: {
+      type: String,
+      default: '1em'
+    },
+    height: {
+      type: String,
+      default: '1em'
     }
   },
   setup(props, context) {
@@ -36,20 +44,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped>
-.svg-icon {
-  width: 1em;
-  height:  1em;
-  vertical-align: -0.15em;
-  overflow: hidden;
-  fill:currentColor;
-  color: rgb(163, 164, 164);
-}
-
-.svg-icon:hover {
-  fill: currentColor;
-  color: rgb(232, 232, 232);
-}
-
-</style>
