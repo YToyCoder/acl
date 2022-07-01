@@ -1,11 +1,11 @@
-import { defineComponent, PropType, SetupContext, renderSlot } from "vue";
+import { defineComponent, PropType, SetupContext, renderSlot, StyleHTMLAttributes } from "vue";
 import './MainBt.scss'
 
 export default defineComponent({
   name: 'MainBt',
   props: {
     type: {
-      type: Object as PropType<string>,
+      type: String ,
       default: ''
     }
   },
