@@ -1,0 +1,28 @@
+@import './variables.scss';
+
+@mixin acl--tag-common {
+  border-radius: 8px;
+  padding: 4px 2px;
+  color: rgb(159, 170, 177);
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.acl__tag-wrapper {
+  @include acl--tag-common();
+  background-color: mix($acl--primary-color, white, 10%);
+
+  .acl__tag-content {
+    padding: 4px 10px;
+    color: $acl--primary-color;
+  }
+
+  .acl__tag-close:hover {
+    border-radius: 45%;
+    background-color: $acl--primary-color ;
+  }
+}
