@@ -14,9 +14,9 @@
 
 .acl__tag-wrapper {
   @include acl--tag-common();
-  background-color: mix($acl--primary-color, white, 10%);
+  background-color: mix($acl--primary-color, $acl--color-white, 20%);
   border-color:  mix($acl--primary-color, rgb(161, 155, 155), 20%);
-  border: 1px solid ;
+  border: 1px solid mix($acl--primary-color, $acl--color-white, 80%);
   min-width: 25px;
 
   .acl__tag-content {
