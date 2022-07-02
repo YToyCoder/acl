@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+.acl__selection {
+  display: flex;
+  flex-direction: row;
+  min-width: 100px;
+  flex-wrap: wrap;
+  border: 1px solid $acl--primary-color;
+  padding: 8px 4px;
+  border-radius: 5px;
+  .acl__selection-tag {
+    margin-left: 1px;
+    margin-right: 1px;
+    height: 25px;
+    min-width: 40px;
+    opacity: 0.8;
+  }
+}
