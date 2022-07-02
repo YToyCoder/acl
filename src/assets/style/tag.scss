@@ -1,7 +1,7 @@
 @import './variables.scss';
 
 @mixin acl--tag-common {
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 4px 2px;
   color: rgb(159, 170, 177);
   box-sizing: border-box;
@@ -15,12 +15,19 @@
 .acl__tag-wrapper {
   @include acl--tag-common();
   background-color: mix($acl--primary-color, white, 10%);
+  border-color:  mix($acl--primary-color, rgb(161, 155, 155), 20%);
+  border: 1px solid ;
+  min-width: 25px;
 
   .acl__tag-content {
     padding: 4px 10px;
     color: $acl--primary-color;
   }
 
+  .acl__tag-close{
+    min-width: 15px;
+    min-height: 15px;
+  }
   .acl__tag-close:hover {
     border-radius: 45%;
     background-color: $acl--primary-color ;
