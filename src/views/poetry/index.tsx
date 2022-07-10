@@ -3,6 +3,8 @@ import BScroll, { ScrollBar, MouseWheel } from "better-scroll"
 import { defineComponent, getCurrentInstance } from "vue"
 import Tang from './Tang.vue'
 import StyleIcon from "@/components/StyleIcon"
+import headTag from "./head-tag"
+import HeadTag from "./head-tag"
 
 function getPoetry() {
   return window.poetry
@@ -73,6 +75,7 @@ export default defineComponent({
             }
           }>统计信息</button> */}
           <div class="acl__poetry-head-tags acl__poetry-head-item">
+            <HeadTag style={({width: '100%', height: '300px'})} data={this.volumes}></HeadTag>
           </div>
           <div class="acl__poetry-head-function acl__poetry-head-item" >
             <StyleIcon icon="volume" height="20px" class="acl__poetry-head-function-item" ></StyleIcon>
