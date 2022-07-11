@@ -4,8 +4,13 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       preload: 'src/bridge/preload.ts'
+    },
+    quasar: {
+      importStrategy: 'kebab',
+      rtlSupport: false
     }
   },
+
   chainWebpack: config => {
     /* config.module */
     /*   .rule('vue') */
@@ -27,5 +32,9 @@ module.exports = {
     .loader('svg-sprite-loader')
     .options({symbolId: 'icon-[name]'})
     .end()
-  }
+  },
+
+  transpileDependencies: [
+    'quasar'
+  ]
 }
