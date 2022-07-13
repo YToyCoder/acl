@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Poetry',
     img: 'poetry',
     classes: [],
-    component: () => import('../views/poetry')
+    component: () => import('../views/poetry/poetry.vue')
   },
   {
     path: '/about',

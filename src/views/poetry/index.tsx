@@ -5,6 +5,7 @@ import Tang from './Tang.vue'
 import StyleIcon from "@/components/StyleIcon"
 import headTag from "./head-tag"
 import HeadTag from "./head-tag"
+import { QLayout, QHeader, QBtn, QToolbar, QSpace } from 'quasar'
 
 function getPoetry() {
   return window.poetry
@@ -65,15 +66,22 @@ export default defineComponent({
       <div 
       style={({height: '100%'})}
       >
-        <div style={({height: '35px', 'border-bottom': '1px solid black'})}>
-          
-          {/* poetry
-          <input />
-          <button onClick={
-            () => {
-              getPoetry()?.loadStatisticOf('quan_tang_shi')
-            }
-          }>统计信息</button> */}
+        <QLayout view="1Hh 1pr 1Ff">
+          <QHeader elevated>
+            <QToolbar>
+              <QBtn icon="menu" flat round dense></QBtn>
+              <QSpace></QSpace>
+            </QToolbar>
+          </QHeader>
+
+        </QLayout>
+      </div>
+    ) 
+  }
+})
+
+/**
+ * <div style={({height: '35px', 'border-bottom': '1px solid black'})}>
           <div class="acl__poetry-head-tags acl__poetry-head-item">
             <HeadTag style={({width: '100%', height: '300px'})} data={this.volumes}></HeadTag>
           </div>
@@ -96,7 +104,4 @@ export default defineComponent({
           })() }
           </div>
         </div>
-      </div>
-    ) 
-  }
-})
+ */
